@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using FavoriteRestaurant.Models;
 using System.Collections.Generic;
@@ -16,9 +17,8 @@ namespace FavoriteRestaurant.Controllers
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants
-                                  .OrderBy(restaurant => restaurant.Cuisine)
-                                  .ToList();
+      List<Restaurant> model = _db.Restaurants.ToList();
+      //.Include(restaurant => restaurant.Cuisine)
       return View(model);
     }
   }

@@ -11,14 +11,14 @@
 {
   <h3>Fool no Restaurants have been added yet! What did you expect?</h3>
 } 
-
+@* 
 <ul>
   @foreach (Restaurant restaurant in Model)
   {
      <li>@Html.ActionLink($"{restaurant.RestaurantName}","Details")</li> // may need to add more
   }
 
-</ul>
+</ul> *@
 
 <p>@Html.ActionLink("Add new retaurant", "Create")</p>
 <p>@Html.ActionLink("Retrun to Home", "Index", "Home")</p>
