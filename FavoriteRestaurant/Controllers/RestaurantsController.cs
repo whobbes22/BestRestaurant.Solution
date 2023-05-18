@@ -18,8 +18,30 @@ namespace FavoriteRestaurant.Controllers
     public ActionResult Index()
     {
       List<Restaurant> model = _db.Restaurants.ToList();
-      //.Include(restaurant => restaurant.Cuisine)
+                                  // .Include(restaurant => restaurant.Cuisine)
+                                  
       return View(model);
+    }
+
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Restaurant restaurant)
+    {
+      _db.Restaurants.Add(restaurant);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Restaurant cRestaurant = _db
+                            .Restaurants
+                            .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
+      return View(cRestaurant);
     }
   }
 }

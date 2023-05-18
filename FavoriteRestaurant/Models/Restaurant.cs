@@ -9,6 +9,6 @@ namespace FavoriteRestaurant.Models
     public string RestaurantHealthCode { get; set; }
     public int RestaurantRating { get; set;}
     public int CuisineId { get; set; }
-   // public Cuisine Cuisine { get; set; }
+    public Cuisine Cuisine { get; set; }
   }
 }

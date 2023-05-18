@@ -1,0 +1,14 @@
+@{
+  Layout ="_Layout";
+}
+
+@model FavoriteRestaurant.Models.Restaurant
+
+<h3>@Model.RestaurantName Details:</h3>
+<hr />
+
+<p>@Model.RestaurantName has an excellent rating of @Model.RestaurantRating</p>
+
+<p>@Model.RestaurantName has an @Model.RestaurantHealthCode Health rating.</p>
+
+<p>@Html.ActionLink("Back to Restaurants","Index")</p>
