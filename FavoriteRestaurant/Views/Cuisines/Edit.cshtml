@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FavoriteRestaurant.Models.Cuisine
+
+<h3>Edit</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CuisineId)
+
+  @Html.LabelFor(model => model.CuisineType)
+  @Html.EditorFor(model => model.CuisineType)
+
+  <input type="submit" value="Save" class="btn btn-primary"/>
+}
+<p>@Html.ActionLink("Back to Cuisines", "Index")</p>

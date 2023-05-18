@@ -51,6 +51,7 @@ namespace FavoriteRestaurant.Controllers
       return View(thisRestaurant);
     }
 
+
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
@@ -68,7 +69,7 @@ namespace FavoriteRestaurant.Controllers
       return View(cRestaurant);
     }
 
-    [HttpPost]
+    [HttpPost, ActionName("Edit")]
     public ActionResult Edit(Restaurant restaurant)
     {
       _db.Restaurants.Update(restaurant);
