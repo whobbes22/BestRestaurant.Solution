@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FavoriteRestaurant.Models.Cuisine
+@using FavoriteRestaurant.Models
+
+<h3>Cuisine Details</h3>
+<hr />
+<h3>Cuisine type: @Model.CuisineType</h3>
+
+@if (@Model.Restaurants.Count == 0)
+{
+  <h4>You fNo restaurants have been added for this cuisine yet.</h4>
+}
+else
+{
+  <h3>@Model.CuisineType Restaurants:</h3>
+  <ul>
+    @foreach (Restaurant restaurant in Model.Restaurants)
+    {
+      <li>@Html.ActionLink($"{restaurant.RestaurantName}", "Details", "Restaurants", new { id = restaurant.RestaurantId })</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to Cuisines List", "Index")</p>
