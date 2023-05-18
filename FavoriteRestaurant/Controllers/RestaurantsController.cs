@@ -17,14 +17,15 @@ namespace FavoriteRestaurant.Controllers
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants.ToList();
-                                  // .Include(restaurant => restaurant.Cuisine)
-                                  
+      List<Restaurant> model = _db.Restaurants
+                                  .Include(restaurant => restaurant.Cuisine)
+                                  .ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "CuisineType");
       return View();
     }
 
