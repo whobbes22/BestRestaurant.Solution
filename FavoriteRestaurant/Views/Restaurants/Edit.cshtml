@@ -4,12 +4,14 @@
 
 @model FavoriteRestaurant.Models.Restaurant
 
-<h5>Add a new Restaurant</h5>
+<h5>Edit Restaurant: @Model.RestaurantName</h5>
 
 
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.RestaurantId)
+
   <p>@Html.LabelFor(model => model.RestaurantName): @Html.TextBoxFor(model => model.RestaurantName)</p>
 
   <p>@Html.LabelFor(model => model.RestaurantHealthCode): @Html.TextBoxFor(model => model.RestaurantHealthCode)</p>
@@ -19,7 +21,7 @@
   <p>@Html.LabelFor(model => model.Cuisine): @Html.DropDownList("CuisineId")</p>
   <br>
 
-  <input type="submit" value="Add new Restaurant" class="btn btn-primary" />
+  <input type="submit" value="Save Edits" class="btn btn-primary" />
 }
 <br>
 <p>@Html.ActionLink("show all Restaurants", "Index")</p>
